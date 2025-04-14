@@ -23,11 +23,10 @@ body {
 
 .stack img {
   transform:
-    translateX(calc(var(--i) * 60px))
-    translateY(calc(var(--i) * -35px))
-    translateZ(calc(var(--i) * -20px));
-  opacity: 0.95;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+    translateX(calc(var(--i) * 10px))
+    translateY(calc(var(--i) * -5px))
+    translateZ(calc(var(--i) * -5px));
+  transition: transform 0.3s ease;
   position: absolute;
   width: 200px;
   height: 100px;
@@ -36,11 +35,8 @@ body {
 
 .stack img:hover {
   transform:
-    translateX(calc(var(--i) * 60px))
-    translateY(calc(var(--i) * -75px))   /* 🔼 위로 더 떠오르게 */
-    translateZ(10px);                    /* 🔼 살짝 앞으로도 나옴 */
+    translateY(calc(var(--i) * -50px))   /* 🔼 위로 더 떠오르게 */
   z-index: 100;
-  opacity: 1;
 }
 
 
