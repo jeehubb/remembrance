@@ -1,17 +1,26 @@
-<div class="stack" id="stack"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Remembrance</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="stack" id="stack"></div>
 
-<script>
-  const stack = document.getElementById('stack');
-  for (let i = 0; i < 100; i++) {
-    const img = document.createElement('img');
-    
-    if (i < 4) {
-      img.src = `memory${i + 1}.jpg`;  // 실제 있는 이미지 사용
-    } else {
-      img.src = `https://placehold.co/150x100?text=${i + 1}`;
+  <script>
+    const stack = document.getElementById('stack');
+    for (let i = 0; i < 100; i++) {
+      const img = document.createElement('img');
+      if (i < 4) {
+        img.src = `memory${i + 1}.jpg`;
+      } else {
+        img.src = `https://placehold.co/150x100?text=${i + 1}`;
+      }
+      img.style.setProperty('--i', i);
+      stack.appendChild(img);
     }
-
-    img.style.setProperty('--i', i);
-    stack.appendChild(img);
-  }
-</script>
+  </script>
+</body>
+</html>
