@@ -7,15 +7,15 @@ body {
   justify-content: center;
   min-height: 100vh;
   overflow: auto;
-  perspective: 1000px;  /* 📌 3D 시점 필수 */
+  perspective: 1000px;
 }
 
 .stack {
   position: relative;
   width: max-content;
   height: auto;
-  transform-style: preserve-3d;  /* ✅ 꼭 있어야 translateZ 보임 */
-  transform: rotateY(-10deg);   /* 📐 시점 기울기 */
+  transform-style: preserve-3d;
+  transform: rotateY(-10deg);
 }
 
 .stack img {
@@ -23,21 +23,18 @@ body {
   width: 150px;
   height: 100px;
   object-fit: cover;
-
-  /* ✅ 입체감 구조 */
   transform-style: preserve-3d;
   transform:
     translateX(calc(var(--i) * 10px))
     translateY(0px)
-    translateZ(calc((100 - var(--i)) * 10px));  /* 숫자 작을수록 앞 */
-
-  transition: transform 0.3s ease;  /* 📌 hover 부드럽게 */
+    translateZ(calc((100 - var(--i)) * 10px));
+  transition: transform 0.3s ease;
 }
 
 .stack img:hover {
   transform:
     translateX(calc(var(--i) * 10px))
-    translateY(-50px)  /* ✅ 위로 띄우기 */
+    translateY(-50px)
     translateZ(calc((100 - var(--i)) * 10px));
   z-index: 100;
 }
