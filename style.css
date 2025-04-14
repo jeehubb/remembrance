@@ -29,6 +29,9 @@ body {
     translateY(0px)
     translateZ(calc((100 - var(--i)) * 10px));
   transition: transform 0.3s ease;
+    outline: 1px solid rgba(0, 0, 0, 0.3); /* 회색 반투명 테두리 */
+
+  
 }
 
 .stack img:hover {
