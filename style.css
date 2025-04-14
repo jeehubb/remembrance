@@ -23,9 +23,15 @@ body {
   height: 100px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transform: translateZ(calc(var(--i) * -30px));
+
+  /* 오른쪽으로 이동 + 뒤로 밀기 */
+  transform: 
+    translateX(calc(var(--i) * 40px))
+    translateZ(calc(var(--i) * -30px));
+
   opacity: 0.95;
 }
+
 
 .stack img:nth-child(1) { --i: 0; }
 .stack img:nth-child(2) { --i: 1; }
@@ -45,7 +51,4 @@ body {
 .stack img:nth-child(16) { --i: 15; }
 .stack img:nth-child(17) { --i: 16; }
 .stack img:nth-child(18) { --i: 17; }
-.stack img:nth-child(19) { --i: 18; }
-.stack img:nth-child(20) { --i: 19; }
-.stack img:nth-child(21) { --i: 20; }
-
+.stack img:nth-child(1
