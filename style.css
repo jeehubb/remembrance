@@ -21,7 +21,7 @@ body {
 
 .stack img {
   transform:
-    translateX(calc(var(--i) * 10px))
+    translateX(calc(var(--i) * -10px))
     translateY(calc(var(--i) * 5px))
     translateZ(calc(var(--i) * -10px));
   position: absolute;
