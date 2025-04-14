@@ -27,7 +27,7 @@ body {
   transform:
     translateX(calc(var(--i) * 10px))
     translateY(0px) 
-    translateZ(calc((20 - var(--i)) * 10px));  /* 총 이미지 수에 따라 20 사용 */
+    translateZ(calc((100 - var(--i)) * 10px));  /* 총 이미지 수에 따라 20 사용 */
     position: absolute;
   width: 150px;
   height: 100px;
@@ -38,29 +38,7 @@ body {
   transform:
   translateX(calc(var(--i) * 10px))
   translateY(-50px)
-  translateZ(calc((20 - var(--i)) * 10px));
+  translateZ(calc((100 - var(--i)) * 10px));
   z-index: 100; /* 겹침 보장 */
 
 }
-
-
-.stack img:nth-child(1) { --i: 0; }
-.stack img:nth-child(2) { --i: 1; }
-.stack img:nth-child(3) { --i: 2; }
-.stack img:nth-child(4) { --i: 3; }
-.stack img:nth-child(5) { --i: 4; }
-.stack img:nth-child(6) { --i: 5; }
-.stack img:nth-child(7) { --i: 6; }
-.stack img:nth-child(8) { --i: 7; }
-.stack img:nth-child(9) { --i: 8; }
-.stack img:nth-child(10) { --i: 9; }
-.stack img:nth-child(11) { --i: 10; }
-.stack img:nth-child(12) { --i: 11; }
-.stack img:nth-child(13) { --i: 12; }
-.stack img:nth-child(14) { --i: 13; }
-.stack img:nth-child(15) { --i: 14; }
-.stack img:nth-child(16) { --i: 15; }
-.stack img:nth-child(17) { --i: 16; }
-.stack img:nth-child(18) { --i: 17; }
-.stack img:nth-child(19) { --i: 18; }
-.stack img:nth-child(20) { --i: 19; }
