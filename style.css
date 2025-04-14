@@ -23,9 +23,25 @@ body {
   height: 100px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transform: translateZ(calc(var(--i) * -30px));
+  hover {
+    transform: 
+      translateX(calc(var(--i) * 40px)) 
+      translateZ(0px);
+  
+    z-index: 100; /* 겹쳐진 이미지보다 위로 올라오게 */
+    opacity: 1; /* 더 선명하게 보이게 (선택 사항) */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+
+  /* 오른쪽으로 이동 + 뒤로 밀기 */
+  transform: 
+    translateX(calc(var(--i) * 40px))
+    translateZ(calc(var(--i) * -30px));
+
   opacity: 0.95;
 }
+
 
 .stack img:nth-child(1) { --i: 0; }
 .stack img:nth-child(2) { --i: 1; }
@@ -48,4 +64,3 @@ body {
 .stack img:nth-child(19) { --i: 18; }
 .stack img:nth-child(20) { --i: 19; }
 .stack img:nth-child(21) { --i: 20; }
-
