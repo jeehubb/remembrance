@@ -37,7 +37,7 @@ body {
 .stack img:hover {
   transform:
     translateX(calc(var(--i) * 10px))
-    translateY(calc(var(--i) * -5px -50px +var(--i) * 5px))
+    translateY(-50px)
     translateZ(calc((100 - var(--i)) * 10px));
   z-index: 100;
 }
