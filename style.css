@@ -23,7 +23,7 @@ body {
   height: 100px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transform: translateZ(calc(var(--i) * 30px));
+  transform: translateZ(calc(var(--i) * -30px));
   opacity: 0.95;
 }
 
