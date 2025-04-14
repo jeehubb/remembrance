@@ -2,25 +2,31 @@
 body {
   margin: 0;
   padding: 0;
-  height: auto;
   background: #000;
-  overflow-x: auto; /* 가로 스크롤 허용 (필요 시) */
-  overflow-y: auto; /* 세로 스크롤 허용 */
-  background: #000;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow-x: auto;  /* 가로 스크롤 가능 */
+  overflow-y: auto;  /* 세로 스크롤 가능 */
+
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  margin: 0;
+
   perspective: 1000px;
+  transform-origin: 0 0;
 }
 
 .stack {
   position: relative;
   width: max-content;
   height: auto;
-  transform-style: preserve-3d;
-  transform: rotateX(55deg) rotateY(-20deg);
+  transform:
+      scale(0.8)
+      rotateX(45deg)
+      rotateY(25deg);
+  
 }  
 
 
@@ -32,9 +38,11 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 
   /* 기본 위치: 오른쪽으로 나열 + 뒤로 감 */
-  transform:
-    translateX(calc(var(--i) * 40px))
+  transform: 
+    translateX(calc(var(--i) * 100px))
+    translateY(calc(var(--i) * -60px))
     translateZ(calc(var(--i) * -30px));
+  
 
   opacity: 0.95;
   transition: transform 0.3s ease, opacity 0.3s ease; /* 여기에 있어야 부드러움 */
