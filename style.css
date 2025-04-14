@@ -32,7 +32,7 @@ body {
 
 .stack img:hover {
   transform:
-    translateY(-50px)   /* 🔼 위로 더 떠오르게 */
+  translateY(calc(var(--i) * -5px -50px))
 }
 
 
