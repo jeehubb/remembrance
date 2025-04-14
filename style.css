@@ -23,23 +23,23 @@ body {
   height: 100px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  hover {
-    transform: 
-      translateX(calc(var(--i) * 40px)) 
-      translateZ(0px);
-  
-    z-index: 100; /* 겹쳐진 이미지보다 위로 올라오게 */
-    opacity: 1; /* 더 선명하게 보이게 (선택 사항) */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-  
 
-  /* 오른쪽으로 이동 + 뒤로 밀기 */
-  transform: 
+  /* 기본 위치: 오른쪽으로 나열 + 뒤로 감 */
+  transform:
     translateX(calc(var(--i) * 40px))
     translateZ(calc(var(--i) * -30px));
 
   opacity: 0.95;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* 여기에 있어야 부드러움 */
+}
+
+.stack img:hover {
+  transform:
+    translateX(calc(var(--i) * 40px))
+    translateZ(0px); /* 앞으로 튀어나옴 */
+
+  z-index: 100;
+  opacity: 1;
 }
 
 
@@ -64,4 +64,3 @@ body {
 .stack img:nth-child(19) { --i: 18; }
 .stack img:nth-child(20) { --i: 19; }
 .stack img:nth-child(21) { --i: 20; }
-
