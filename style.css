@@ -7,7 +7,7 @@ body {
   justify-content: center;
   min-height: 100vh;
   overflow: auto;
-  perspective: 2000px;
+  perspective: 3000px;
 }
 
 .stack {
