@@ -3,59 +3,46 @@ body {
   margin: 0;
   padding: 0;
   background: #000;
-
-  width: 100%;
-  min-height: 100vh;
-
-  overflow-x: auto;  /* 가로 스크롤 가능 */
-  overflow-y: auto;  /* 세로 스크롤 가능 */
-
   display: flex;
   align-items: center;
   justify-content: center;
-
+  min-height: 100vh;
+  overflow: auto;
   perspective: 1000px;
-  transform-origin: 0 0;
 }
 
 .stack {
   position: relative;
-  width: max-content;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg) rotateY(20deg) scale(0.9); /* 적절한 회전 + 스케일 */
+  width: max-content; /* 이미지 수에 맞게 자동 확장 */
   height: auto;
-  transform:
-      scale(0.8)
-      rotateX(45deg)
-      rotateY(25deg);
-  
-}  
+}
+
 
 
 .stack img {
+  transform:
+    translateX(calc(var(--i) * 60px))
+    translateY(calc(var(--i) * -35px))
+    translateZ(calc(var(--i) * -20px));
+  opacity: 0.95;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   position: absolute;
   width: 200px;
   height: 100px;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-
-  /* 기본 위치: 오른쪽으로 나열 + 뒤로 감 */
-  transform: 
-    translateX(calc(var(--i) * 100px))
-    translateY(calc(var(--i) * -60px))
-    translateZ(calc(var(--i) * -30px));
-  
-
-  opacity: 0.95;
-  transition: transform 0.3s ease, opacity 0.3s ease; /* 여기에 있어야 부드러움 */
 }
 
 .stack img:hover {
   transform:
-    translateX(calc(var(--i) * 40px))
-    translateZ(0px); /* 앞으로 튀어나옴 */
-
+    translateX(calc(var(--i) * 60px))
+    translateY(calc(var(--i) * -75px))   /* 🔼 위로 더 떠오르게 */
+    translateZ(10px);                    /* 🔼 살짝 앞으로도 나옴 */
   z-index: 100;
   opacity: 1;
 }
+
 
 
 .stack img:nth-child(1) { --i: 0; }
