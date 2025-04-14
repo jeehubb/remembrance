@@ -37,7 +37,7 @@ body {
 .stack img:hover {
   transform:
   translateX(calc(var(--i) * 10px))
-  translateY(-30px)
+  translateY(-50px)
   translateZ(calc((20 - var(--i)) * 10px));
   z-index: 100; /* 겹침 보장 */
 
