@@ -23,6 +23,16 @@ body {
   height: 100px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  hover {
+    transform: 
+      translateX(calc(var(--i) * 40px)) 
+      translateZ(0px);
+  
+    z-index: 100; /* 겹쳐진 이미지보다 위로 올라오게 */
+    opacity: 1; /* 더 선명하게 보이게 (선택 사항) */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
 
   /* 오른쪽으로 이동 + 뒤로 밀기 */
   transform: 
