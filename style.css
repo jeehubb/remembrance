@@ -24,7 +24,7 @@ body {
   transform:
     translateX(calc(var(--i) * 10px))
     translateY(calc(var(--i) * -5px))
-    translateZ(calc((20 - var(--i)) * 10px));
+    translateZ(calc((100 - var(--i)) * 10px));
   position: absolute;
   width: 150px;
   height: 100px;
