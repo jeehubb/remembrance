@@ -51,4 +51,7 @@ body {
 .stack img:nth-child(16) { --i: 15; }
 .stack img:nth-child(17) { --i: 16; }
 .stack img:nth-child(18) { --i: 17; }
-.stack img:nth-child(1
+.stack img:nth-child(19) { --i: 18; }
+.stack img:nth-child(20) { --i: 19; }
+.stack img:nth-child(21) { --i: 20; }
+
