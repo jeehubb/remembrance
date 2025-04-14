@@ -26,7 +26,7 @@ body {
   transform-style: preserve-3d;
   transform:
     translateX(calc(var(--i) * 10px))
-    translateY(calc(var(--i) * -5px))
+    translateY(0px) 
     translateZ(calc((20 - var(--i)) * 10px));  /* 총 이미지 수에 따라 20 사용 */
     position: absolute;
   width: 150px;
