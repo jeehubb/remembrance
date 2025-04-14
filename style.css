@@ -14,7 +14,7 @@ body {
 .stack {
   position: relative;
   transform-style: preserve-3d;
-  transform: rotateX(45deg) rotateY(20deg) scale(0.9); /* 적절한 회전 + 스케일 */
+  transform: scale(0.9); /* 적절한 회전 + 스케일 */
   width: max-content; /* 이미지 수에 맞게 자동 확장 */
   height: auto;
 }
@@ -28,7 +28,7 @@ body {
     translateZ(calc(var(--i) * 10px));
   transition: transform 0.3s ease;
   position: absolute;
-  width: 200px;
+  width: 150px;
   height: 100px;
   object-fit: cover;
 }
@@ -36,7 +36,6 @@ body {
 .stack img:hover {
   transform:
     translateY(calc(var(--i) * -50px))   /* 🔼 위로 더 떠오르게 */
-  z-index: 100;
 }
 
 
