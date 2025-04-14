@@ -16,7 +16,7 @@ body {
   width: max-content; /* 이미지 수에 맞게 자동 확장 */
   height: auto;
   transform-style: preserve-3d; /* 이거 꼭 추가! */
-  transform: rotateY(-20deg);
+  transform: rotateY(-10deg);
   }
   
 
