@@ -1,5 +1,11 @@
 
 body {
+  margin: 0;
+  padding: 0;
+  height: auto;
+  background: #000;
+  overflow-x: auto; /* 가로 스크롤 허용 (필요 시) */
+  overflow-y: auto; /* 세로 스크롤 허용 */
   background: #000;
   display: flex;
   align-items: center;
@@ -11,10 +17,10 @@ body {
 
 .stack {
   position: relative;
-  width: 200px;
-  height: 100px;
+  width: max-content;
+  height: auto;
   transform-style: preserve-3d;
-  transform: rotateX(55deg) rotateY(20deg);
+  transform: rotateX(55deg) rotateY(-20deg);
 }  
 
 
