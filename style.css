@@ -16,7 +16,7 @@ body {
   width: max-content; /* 이미지 수에 맞게 자동 확장 */
   height: auto;
   transform-style: preserve-3d; /* 이거 꼭 추가! */
-  transform: rotateY(-10deg);
+  transform: rotateY(-30deg);
   }
   
 
@@ -37,7 +37,7 @@ body {
 .stack img:hover {
   transform:
   translateX(calc(var(--i) * 10px))
-  translateY(calc(var(--i) * 5px - 30px))
+  translateY(-30px)
   translateZ(calc((20 - var(--i)) * 10px));
   z-index: 100; /* 겹침 보장 */
 
