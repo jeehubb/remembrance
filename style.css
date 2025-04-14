@@ -20,10 +20,11 @@ body {
 
 
 .stack img {
+  transform-style: preserve-3d;
   transform:
     translateX(calc(var(--i) * 10px))
     translateY(calc(var(--i) * -5px))
-    translateZ(calc(var(--i)* -10px));
+    translateZ(calc((20 - var(--i)) * 10px));
   position: absolute;
   width: 150px;
   height: 100px;
