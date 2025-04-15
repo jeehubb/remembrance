@@ -21,32 +21,4 @@
 
       // 이미지 위치를 총 개수 기준으로 계산해서 3D 배치
       el.style.transform = `
-        translateX(${i * 10}px)
-        translateY(${-i * 5}px)
-        translateZ(${(total - i) * 10}px)
-      `;
-      el.style.zIndex = "1";
-
-      el.addEventListener('mouseover', () => {
-        el.style.zIndex = "100";
-        el.style.transform = `
-          translateX(${i * 10}px)
-          translateY(-50px)
-          translateZ(${(total - i) * 10}px)
-        `;
-      });
-
-      el.addEventListener('mouseout', () => {
-        el.style.zIndex = "1";
-        el.style.transform = `
-          translateX(${i * 10}px)
-          translateY(${-i * 5}px)
-          translateZ(${(total - i) * 10}px)
-        `;
-      });
-
-      stack.appendChild(el);
-    });
-  </script>
-</body>
-</html>
+       
