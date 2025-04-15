@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Remembrance</title>
+  <title>Remembrance Stack</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,16 +10,43 @@
 
   <script>
     const stack = document.getElementById('stack');
-    for (let i = 0; i < 100; i++) {
-      const img = document.createElement('img');
-      if (i < 4) {
-        img.src = `memory${i + 1}.jpg`;
-      } else {
-        img.src = `https://placehold.co/150x100?text=${i + 1}`;
-      }
-      img.style.setProperty('--i', i);
-      stack.appendChild(img);
-    }
+    const storedImages = JSON.parse(sessionStorage.getItem('images') || "[]");
+    const total = storedImages.length;
+
+    storedImages.sort((a, b) => a.modified - b.modified);
+
+    storedImages.forEach((img, i) => {
+      const el = document.createElement('img');
+      el.src = img.src;
+
+      // 이미지 위치를 총 개수 기준으로 계산해서 3D 배치
+      el.style.transform = `
+        translateX(${i * 10}px)
+        translateY(${-i * 5}px)
+        translateZ(${(total - i) * 10}px)
+      `;
+      el.style.zIndex = "1";
+
+      el.addEventListener('mouseover', () => {
+        el.style.zIndex = "100";
+        el.style.transform = `
+          translateX(${i * 10}px)
+          translateY(-50px)
+          translateZ(${(total - i) * 10}px)
+        `;
+      });
+
+      el.addEventListener('mouseout', () => {
+        el.style.zIndex = "1";
+        el.style.transform = `
+          translateX(${i * 10}px)
+          translateY(${-i * 5}px)
+          translateZ(${(total - i) * 10}px)
+        `;
+      });
+
+      stack.appendChild(el);
+    });
   </script>
 </body>
 </html>
