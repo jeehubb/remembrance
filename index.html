@@ -3,33 +3,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Upload Images</title>
+  <title>Remembrance Upload</title>
 </head>
 <body>
   <h2>이미지 업로드</h2>
   <input type="file" id="imageInput" multiple accept="image/*" />
 
   <script>
-    document.getElementById('imageInput').addEventListener('change', function (e) {
-      const files = [...e.target.files];
-      const imageData = [];
-      let filesRead = 0;
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("imageInput");
 
-      files.forEach(file => {
-        const reader = new FileReader();
-        reader.onload = function (event) {
+      input.addEventListener("change", function (e) {
+        const files = [...e.target.files];
+        const imageData = [];
+
+        files.forEach(file => {
+          const objectUrl = URL.createObjectURL(file);
           imageData.push({
-            src: event.target.result,
+            src: objectUrl,
             name: file.name,
             modified: file.lastModified
           });
-          filesRead++;
-          if (filesRead === files.length) {
-            sessionStorage.setItem('images', JSON.stringify(imageData));
-            window.location.href = "display.html";
-          }
-        };
-        reader.readAsDataURL(file);
+        });
+
+        sessionStorage.setItem('images', JSON.stringify(imageData));
+        window.location.href = "display.html";
       });
     });
   </script>
