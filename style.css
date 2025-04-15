@@ -3,11 +3,29 @@ body {
   padding: 0;
   background: #fff;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  perspective: 3000px;
+}
+
+.drop-area {
+  width: 400px;
+  height: 150px;
+  border: 2px dashed #aaa;
+  margin-top: 40px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  overflow: auto;
-  perspective: 3000px;
+  color: #666;
+  font-size: 16px;
+  transition: background 0.2s ease;
+}
+
+.drop-area.hover {
+  background: #eee;
+  border-color: #333;
 }
 
 .stack {
@@ -16,6 +34,7 @@ body {
   height: auto;
   transform-style: preserve-3d;
   transform: rotateY(-10deg);
+  margin-top: 40px;
 }
 
 .stack img {
@@ -23,21 +42,6 @@ body {
   width: 150px;
   height: 100px;
   object-fit: cover;
-  transform-style: preserve-3d;
-  transform:
-    translateX(calc(var(--i) * 10px))
-    translateY(calc(var(--i) * -5px))
-    translateZ(calc((100 - var(--i)) * 10px));
+  outline: 1px solid rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
-    outline: 1px solid rgba(0, 0, 0, 0.3); /* 회색 반투명 테두리 */
-
-  
-}
-
-.stack img:hover {
-  transform:
-    translateX(calc(var(--i) * 10px))
-    translateY(-50px)
-    translateZ(calc((100 - var(--i)) * 10px));
-  z-index: 100;
 }

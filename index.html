@@ -3,33 +3,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Remembrance Upload</title>
+  <title>IMAGE UPLOAD</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h2>이미지 업로드</h2>
-  <input type="file" id="imageInput" multiple accept="image/*" />
+  <div id="drop" class="drop-area">Drag & Drop</div>
+  <div class="stack" id="stack"></div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const input = document.getElementById("imageInput");
+    const drop = document.getElementById('drop');
+    const stack = document.getElementById('stack');
+    let index = 0;
 
-      input.addEventListener("change", function (e) {
-        const files = [...e.target.files];
-        const imageData = [];
+    drop.ondragover = function(e) {
+      e.preventDefault();
+      drop.classList.add('hover');
+    };
 
-        files.forEach(file => {
-          const objectUrl = URL.createObjectURL(file);
-          imageData.push({
-            src: objectUrl,
-            name: file.name,
-            modified: file.lastModified
-          });
+    drop.ondragleave = function() {
+      drop.classList.remove('hover');
+    };
+
+    drop.ondrop = function(e) {
+      e.preventDefault();
+      drop.classList.remove('hover');
+
+      const files = e.dataTransfer.files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const url = URL.createObjectURL(file);
+
+        const img = document.createElement('img');
+        img.src = url;
+
+        img.style.transform = `
+          translateX(${index * 10}px)
+          translateY(${-index * 5}px)
+          translateZ(${(50 - index) * 10}px)
+        `;
+        img.style.zIndex = "1";
+
+        img.addEventListener("mouseover", () => {
+          img.style.zIndex = "100";
+          img.style.transform = `
+            translateX(${index * 10}px)
+            translateY(-50px)
+            translateZ(${(50 - index) * 10}px)
+          `;
         });
 
-        sessionStorage.setItem('images', JSON.stringify(imageData));
-        window.location.href = "display.html";
-      });
-    });
+        img.addEventListener("mouseout", () => {
+          img.style.zIndex = "1";
+          img.style.transform = `
+            translateX(${index * 10}px)
+            translateY(${-index * 5}px)
+            translateZ(${(50 - index) * 10}px)
+          `;
+        });
+
+        stack.appendChild(img);
+        index++;
+      }
+    };
   </script>
 </body>
 </html>
